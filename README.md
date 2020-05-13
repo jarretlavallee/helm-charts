@@ -5,3 +5,8 @@ This repo contains various helm charts that I use in my lab. None are ready for 
 ## Usage
 
 Helm v3 is required to run the charts. Please refer to the [documentation](https://helm.sh/docs/) to get started.
+
+```
+helm repo add jarretlavallee https://jarretlavallee.github.io/helm-charts/
+helm repo update
+```

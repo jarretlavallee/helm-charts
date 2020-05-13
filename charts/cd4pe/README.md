@@ -8,10 +8,9 @@ CD4PE with PostgreSQL for a deployment in a lab. This is not suited for producti
 
 Supported for Helm v3
 
-\#TODO add installation instructions.
-
 ```bash
-helm install cd4pe
+helm repo add jarretlavallee https://jarretlavallee.github.io/helm-charts/
+helm install jarretlavallee/cd4pe 
 ```
 
 ## Introduction
@@ -27,10 +26,9 @@ This chart bootstraps a lab instance of [CD4PE](hhttps://puppet.com/docs/continu
 
 To install the chart with the release name `my-release`:
 
-\#TODO add installation instructions.
 
 ```bash
-helm install --name my-release
+helm install --name my-release jarretlavallee/cd4pe 
 ```
 
 The command deploys CD4PE on the Kubernetes cluster with the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -87,11 +85,10 @@ The above parameters map to the env variables defined in each container. For mor
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 
-\#TODO add installation instructions.
-
 ```bash
 helm install --name CD4PE-release \
-  --set service.type=LoadBalancer
+  --set service.type=LoadBalancer \
+  jarretlavallee/cd4pe
 ```
 
 The above command sets the  by CD4PE service to LoadBalancer, so all of the services will be on the same external IP.
@@ -99,7 +96,7 @@ The above command sets the  by CD4PE service to LoadBalancer, so all of the serv
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart. For example,
 
 ```bash
-helm install --name my-release -f values.yaml
+helm install --name my-release -f values.yaml jarretlavallee/cd4pe
 ```
 
 ## Persistence
