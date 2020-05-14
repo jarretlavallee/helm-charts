@@ -3,8 +3,8 @@ name: cd4pe
 description: An experimental helm chart for Puppet CD4PE
 
 type: application
-version: 0.1.0
-appVersion: 3.7.1
+version: 0.1.1
+appVersion: 3.8.0
 
 dependencies:
   - name: postgresql
