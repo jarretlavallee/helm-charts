@@ -96,6 +96,16 @@ postgresql:
   postgresqlUsername: "cd4pe"
   # postgresqlPassword can be set or a random password is generate and used
 
+# Inject sidecar containers if desired.
+sidecars: []
+  ## The example below runs the client for https://smee.io as sidecar container next to cd4pe,
+  ## that allows to trigger build behind a firewall.
+  ## https://jenkins.io/blog/2019/01/07/webhook-firewalls/#triggering-builds-with-webhooks-behind-a-secure-firewall
+  ##
+  ## Note: To use it you should go to https://smee.io/new and update the url to the generete one.
+  # - name: smee
+  #   image: twalter/smee-client:latest
+  #   args: ["--port", "8000", "--path", "/gitlab/push", "--url", "https://smee.io/new"]
 
 podAnnotations: {}
 

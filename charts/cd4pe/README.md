@@ -10,7 +10,7 @@ Supported for Helm v3
 
 ```bash
 helm repo add jarretlavallee https://jarretlavallee.github.io/helm-charts/
-helm install jarretlavallee/cd4pe 
+helm install jarretlavallee/cd4pe
 ```
 
 ## Introduction
@@ -26,9 +26,8 @@ This chart bootstraps a lab instance of [CD4PE](hhttps://puppet.com/docs/continu
 
 To install the chart with the release name `my-release`:
 
-
 ```bash
-helm install --name my-release jarretlavallee/cd4pe 
+helm install --name my-release jarretlavallee/cd4pe
 ```
 
 The command deploys CD4PE on the Kubernetes cluster with the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -80,6 +79,7 @@ The following table lists the configurable parameters of the CD4PE chart and the
 | `postgresql.postgresqlDatabase`    | The database name to create and use for cd4pe                           | `cd4pe`                                                                                                                             |
 | `postgresql.postgresqlUsername`    | The user name to use to access PostgreSQL                               | `cd4pe`                                                                                                                             |
 | `postgresql.postgresqlPassword`    | The password to use to access PostgreSQL                                | A random 10 character string                                                                                                        |
+| `sidecars`                         | An array of any sidecars to run along with CD4PE                        | `[]`                                                                                                                                |
 
 The above parameters map to the env variables defined in each container. For more information please refer to each image documentation.
 
