@@ -4,7 +4,7 @@
 
 image:
   repository: puppet/continuous-delivery-for-puppet-enterprise
-  pullPolicy: Always # Keep up with the latest 3.x release
+  pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "3.x"
 
@@ -41,11 +41,11 @@ service:
   loadBalancerSourceRanges:
   annotations: {}
   ports:
-    - port: 80 # container port 8080
+    - port: 80
       targetPort: http
       protocol: TCP
       name: http
-    - port: 443 # container port 8443
+    - port: 443
       targetPort: https
       protocol: TCP
       name: https
@@ -91,11 +91,21 @@ persistence:
 # Additional optionas are available in https://github.com/bitnami/charts/blob/master/bitnami/postgresql/values.yaml
 postgresql:
   image:
-    tag: "9.6" # Pin to the 9.6 version of postgresql
+    tag: "9.6"
   postgresqlDatabase: "cd4pe"
   postgresqlUsername: "cd4pe"
   # postgresqlPassword can be set or a random password is generate and used
 
+# Inject sidecar containers if desired.
+sidecars: []
+  ## The example below runs the client for https://smee.io as sidecar container next to cd4pe,
+  ## that allows to trigger build behind a firewall.
+  ## https://jenkins.io/blog/2019/01/07/webhook-firewalls/#triggering-builds-with-webhooks-behind-a-secure-firewall
+  ##
+  ## Note: To use it you should go to https://smee.io/new and update the url to the generete one.
+  # - name: smee
+  #   image: twalter/smee-client:latest
+  #   args: ["--port", "8000", "--path", "/gitlab/push", "--url", "https://smee.io/new"]
 
 podAnnotations: {}
 

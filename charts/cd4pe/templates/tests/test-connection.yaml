@@ -11,5 +11,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ include "cd4pe.fullname" . }}:{{ .Values.service.port }}']
+      args: ['{{ include "cd4pe.fullname" . }}:{{ (index .Values.service.ports 0).port }}']
   restartPolicy: Never
