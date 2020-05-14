@@ -2,6 +2,24 @@ apiVersion: v1
 entries:
   cd4pe:
   - apiVersion: v2
+    appVersion: 3.8.0
+    created: "2020-05-14T05:04:48.889047061Z"
+    dependencies:
+    - name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 8.9.6
+    description: An experimental helm chart for Puppet CD4PE
+    digest: 1a6fa185ea33205814ffcec86e0a1976d2cade6aa170132b1c28a4b4595f8e7c
+    home: https://github.com/jarretlavallee/helm-charts
+    maintainers:
+    - email: jarret.lavallee@gmail.com
+      name: jarretlavallee
+    name: cd4pe
+    type: application
+    urls:
+    - https://github.com/jarretlavallee/helm-charts/releases/download/cd4pe-0.1.1/cd4pe-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
     appVersion: 3.7.1
     created: "2020-05-13T22:55:47.3353852Z"
     dependencies:
