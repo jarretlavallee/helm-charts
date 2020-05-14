@@ -1,6 +1,10 @@
 apiVersion: v2
 name: cd4pe
 description: An experimental helm chart for Puppet CD4PE
+home: https://github.com/jarretlavallee/helm-charts
+maintainers:
+  - name: jarretlavallee
+    email: jarret.lavallee@gmail.com
 
 type: application
 version: 0.1.1
