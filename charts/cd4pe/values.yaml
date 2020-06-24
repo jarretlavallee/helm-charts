@@ -57,6 +57,10 @@ service:
       targetPort: dump
       protocol: TCP
       name: dump
+    - port: 8888
+      targetPort: query
+      protocol: TCP
+      name: query
 
 ingress:
   enabled: false
