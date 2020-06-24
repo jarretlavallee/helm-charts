@@ -7,8 +7,8 @@ maintainers:
     email: jarret.lavallee@gmail.com
 
 type: application
-version: 0.1.1
-appVersion: 3.8.0
+version: 0.1.2
+appVersion: 3.11.0
 
 dependencies:
   - name: postgresql

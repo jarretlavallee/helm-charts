@@ -38,6 +38,8 @@ spec:
               name: backend
             - containerPort: 7000
               name: dump
+            - containerPort: 8888
+              name: query
           livenessProbe:
             httpGet:
               path: /
