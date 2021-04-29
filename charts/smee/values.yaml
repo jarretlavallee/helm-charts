@@ -1,0 +1,54 @@
+replicaCount: 1
+
+image:
+  repository: deltaprojects/smee-client
+  pullPolicy: Always
+  tag: "latest"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+# Smee configuration. See https://smee.io and
+# https://hub.docker.com/r/deltaprojects/smee-client
+
+config:
+  # -- Full URL (including protocol and path) of the target service the events will forwarded to
+  target: "http://127.0.0.1:3000/"
+  # -- URL of the webhook proxy service
+  url: ""
+  # -- URL path to post proxied requests to
+  path: ""
+  # -- Local HTTP server port
+  port: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

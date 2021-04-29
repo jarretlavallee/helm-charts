@@ -1,0 +1,11 @@
+apiVersion: v2
+name: smee
+description: Smee helm chart to provide remote webhook access
+type: application
+version: 0.1.0
+appVersion: "latest"
+icon: https://smee.io/public/favicon.png
+sources: ["https://github.com/jarretlavallee/helm-charts/tree/master/charts/smee"]
+home: https://jarretlavallee.github.io/helm-charts/
+maintainers:
+  - name: jarretlavallee

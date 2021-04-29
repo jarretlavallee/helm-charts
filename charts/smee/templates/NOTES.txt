@@ -1,0 +1,1 @@
+Configure the service with values from https://smee.io
