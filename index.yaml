@@ -51,4 +51,21 @@ entries:
     urls:
     - https://github.com/jarretlavallee/helm-charts/releases/download/cd4pe-0.1.0/cd4pe-0.1.0.tgz
     version: 0.1.0
+  smee:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-04-29T18:58:10.372588781Z"
+    description: Smee helm chart to provide remote webhook access
+    digest: 1a90376961dcf90947dd4b8fcec6cfd1b6fc10ea3f49f386c0ac822dffdaa19f
+    home: https://jarretlavallee.github.io/helm-charts/
+    icon: https://smee.io/public/favicon.png
+    maintainers:
+    - name: jarretlavallee
+    name: smee
+    sources:
+    - https://github.com/jarretlavallee/helm-charts/tree/master/charts/smee
+    type: application
+    urls:
+    - https://github.com/jarretlavallee/helm-charts/releases/download/smee-0.1.0/smee-0.1.0.tgz
+    version: 0.1.0
 generated: "2020-05-13T22:55:47.227531829Z"
