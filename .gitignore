@@ -9,3 +9,4 @@
 *.tmproj
 .vscode/
 .env
+Chart.lock
