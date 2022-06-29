@@ -51,6 +51,35 @@ entries:
     urls:
     - https://github.com/jarretlavallee/helm-charts/releases/download/cd4pe-0.1.0/cd4pe-0.1.0.tgz
     version: 0.1.0
+  powerdns:
+  - apiVersion: v2
+    appVersion: v4.6.1
+    created: "2022-06-29T19:08:51.213747431Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.16.2
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.5.1
+    description: PowerDNS is a DNS server, written in C++ and licensed under the GPL.
+      It runs on most Unix derivatives. PowerDNS features a large number of different
+      backends ranging from simple BIND style zonefiles to relational databases and
+      load balancing/failover algorithms. A DNS recursor is provided as a separate
+      program.
+    digest: 52521770ae0c72f1ab9fe9a68d53d4e6819d913d225622417cdbd0a7d4100c66
+    home: https://github.com/jarretlavallee/helm-charts/tree/master/charts/powerdns
+    icon: https://avatars.githubusercontent.com/u/1282630?s=200&v=4
+    maintainers:
+    - name: jarretlavallee
+    name: powerdns
+    sources:
+    - http://www.github.com/PowerDNS/
+    urls:
+    - https://github.com/jarretlavallee/helm-charts/releases/download/powerdns-5.0.1/powerdns-5.0.1.tgz
+    version: 5.0.1
   smee:
   - apiVersion: v2
     appVersion: latest
@@ -68,4 +97,4 @@ entries:
     urls:
     - https://github.com/jarretlavallee/helm-charts/releases/download/smee-0.1.0/smee-0.1.0.tgz
     version: 0.1.0
-generated: "2020-05-13T22:55:47.227531829Z"
+generated: "2022-06-29T19:08:51.213759331Z"
