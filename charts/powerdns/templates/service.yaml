@@ -1,0 +1,105 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "powerdns.fullname" . }}-udp
+{{- if or .Values.service.udp.annotations .Values.service.annotations }}
+  annotations:
+  {{- with .Values.service.udp.annotations }}
+    {{ toYaml . | indent 4 }}
+  {{- end }}
+  {{- with .Values.service.annotations }}
+    {{ toYaml . | indent 4 }}
+  {{- end }}
+{{- end }}
+  labels:
+{{ include "powerdns.labels" . | indent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+{{- if .Values.service.loadBalancerIP }}
+  loadBalancerIP: {{ .Values.service.loadBalancerIP }}
+{{- end }}
+{{- if .Values.service.externalIPs }}
+  externalIPs:
+{{ toYaml .Values.service.externalIPs | indent 4 }}
+{{- end }}
+{{- if (.Values.service.externalTrafficPolicy) }}
+  externalTrafficPolicy: "{{ .Values.service.externalTrafficPolicy }}"
+{{- end }}
+  ports:
+    - name: dns-udp
+      port: 53
+      protocol: UDP
+  selector:
+    app.kubernetes.io/name: {{ include "powerdns.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "powerdns.fullname" . }}-tcp
+{{- if or .Values.service.tcp.annotations .Values.service.annotations }}
+  annotations:
+  {{- with .Values.service.tcp.annotations }}
+    {{ toYaml . | indent 4 }}
+  {{- end }}
+  {{- with .Values.service.annotations }}
+    {{ toYaml . | indent 4 }}
+  {{- end }}
+{{- end }}
+  labels:
+{{ include "powerdns.labels" . | indent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+{{- if .Values.service.loadBalancerIP }}
+  loadBalancerIP: {{ .Values.service.loadBalancerIP }}
+{{- end }}
+{{- if .Values.service.externalIPs }}
+  externalIPs:
+{{ toYaml .Values.service.externalIPs | indent 4 }}
+{{- end }}
+{{- if (.Values.service.externalTrafficPolicy) }}
+  externalTrafficPolicy: "{{ .Values.service.externalTrafficPolicy }}"
+{{- end }}
+  ports:
+    - name: dns-tcp
+      port: 53
+      protocol: TCP
+  selector:
+    app.kubernetes.io/name: {{ include "powerdns.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+{{ if (.Values.powerdns.api_key) }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "powerdns.fullname" . }}-webserver
+{{- if or .Values.service.webserver.annotations .Values.service.annotations }}
+  annotations:
+  {{- with .Values.service.webserver.annotations }}
+    {{ toYaml . | indent 4 }}
+  {{- end }}
+  {{- with .Values.service.annotations }}
+    {{ toYaml . | indent 4 }}
+  {{- end }}
+{{- end }}
+  labels:
+{{ include "powerdns.labels" . | indent 4 }}
+spec:
+  type: {{ .Values.service.webserver.type }}
+{{- if eq .Values.service.webserver.type "LoadBalancer" }}
+  {{- if or .Values.service.webserver.loadBalancerIP .Values.service.loadBalancerIP }}
+  loadBalancerIP: {{ coalesce .Values.service.webserver.loadBalancerIP .Values.service.loadBalancerIP }}
+  {{- end }}
+{{- end }}
+{{- if .Values.service.webserver.externalIPs }}
+  externalIPs:
+{{ toYaml .Values.service.webserver.externalIPs | indent 4 }}
+{{- end }}
+  ports:
+    - port: {{ .Values.service.webserver.port }}
+      targetPort: dns-webserver
+      protocol: TCP
+  selector:
+    app.kubernetes.io/name: {{ include "powerdns.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}
